@@ -3,8 +3,10 @@ import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
+
+  const LoginPage({Key? key}) : super(key: key);
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
