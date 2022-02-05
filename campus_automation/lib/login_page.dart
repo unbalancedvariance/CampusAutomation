@@ -22,10 +22,10 @@ class _LoginPageState extends State<LoginPage> {
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: 'alucard@gmail.com',
+      initialValue: 'IMT2020529',
       decoration: InputDecoration(
-        hintText: 'Email',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        hintText: 'Registration no:',
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
     );
@@ -36,26 +36,26 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: true,
       decoration: InputDecoration(
         hintText: 'Password',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
     );
 
     final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
     style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(24),
-        side: BorderSide(
+        side: const BorderSide(
     color: Colors.lightBlueAccent,
     width: 2.0,
     ),
     ),
     ),
     ),
-    child: Text('Log In',style: TextStyle(color: Colors.white)),
+    child: const Text('Log In',style: TextStyle(color: Colors.white)),
     onPressed: () {
       Navigator.of(context).pushNamed(HomePage.tag);
     },
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final forgotLabel = TextButton(
-      child: Text(
+      child: const Text(
         'Forgot password?',
         style: TextStyle(color: Colors.black54),
       ),
@@ -75,14 +75,14 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: ListView(
           shrinkWrap: true,
-          padding: EdgeInsets.only(left: 24.0, right: 24.0),
+          padding: const EdgeInsets.only(left: 24.0, right: 24.0),
           children: <Widget>[
             logo,
-            SizedBox(height: 48.0),
+            const SizedBox(height: 48.0),
             email,
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             password,
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             loginButton,
             forgotLabel
           ],
