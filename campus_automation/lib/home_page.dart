@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'size_config.dart';
-
+import 'form.dart';
 class HomePage extends StatelessWidget {
   static String tag = 'home_page';
 
@@ -57,7 +57,11 @@ class HomePage extends StatelessWidget {
                         // This group of children will consist of pair of widget rows.
                         Row(
                           children :[
-                            Container(
+                            InkWell(
+                            onTap:(){
+                                  Navigator.of(context).pushNamed(SignUpPage.tag);
+                              },
+                            child: Container(
                               margin: const EdgeInsets.fromLTRB(8,20,4,4),
                               // Box one
                               width: SizeConfig.screenWidth*0.46,
@@ -67,6 +71,7 @@ class HomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(5),
                               ),
                             ),
+    ),
                             Container(
                               // Box two
                               margin: const EdgeInsets.fromLTRB(4,20,4,4),

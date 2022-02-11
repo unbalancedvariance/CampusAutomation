@@ -1,115 +1,97 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'size_config.dart';
+import 'package:velocity_x/velocity_x.dart';
 
-class HomePage extends StatelessWidget {
-  static String tag = 'home_page';
-
-  const HomePage({Key? key}) : super(key: key);
-
+class SignUpPage extends StatelessWidget {
   @override
+  static String tag = 'form';
+  const SignUpPage({Key? key}) : super(key: key);
   Widget build(BuildContext context) {
-    return SafeArea(
-      child:SingleChildScrollView(
-        child: Column(
-          children:[
-            Row(
-              children :[
-                Container(
-                  width: SizeConfig.screenWidth*0.97,
-                  height: SizeConfig.screenHeight*0.28,
-                  decoration:  BoxDecoration(
-                    color: Color(0xFF83D0E4),
-                    borderRadius: BorderRadius.circular(12),
+
+    return Scaffold(
+      backgroundColor: context.canvasColor,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              "Create a Service Request".text.xl5.bold.color(context.theme.colorScheme.secondary).make(),
+              CupertinoFormSection(
+                  header: "Personal Details".text.make(),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Enter name",
+                      ),
+                      prefix: "Name".text.make(),
+                    ),
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Enter phone",
+                      ),
+                      prefix: "Phone".text.make(),
+                    )
+                  ]),
+              CupertinoFormSection(header: "User".text.make(), children: [
+                CupertinoFormRow(
+                  child: CupertinoTextFormFieldRow(
+                    placeholder: "Enter email",
                   ),
-                  child :Align(
-                    alignment: Alignment(0.92,-0.90),
-                    child:CircleAvatar(
-                      radius: 21.0,
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 20.0,
-                        backgroundImage: AssetImage('assets/alucard.jpg'),
+                  prefix: "Email".text.make(),
+                ),
+                CupertinoFormRow(
+                  child: CupertinoTextFormFieldRow(
+                    obscureText: true,
+                  ),
+                  prefix: "Password".text.make(),
+                ),
+                CupertinoFormRow(
+                  child: CupertinoTextFormFieldRow(
+                    obscureText: true,
+                  ),
+                  prefix: "Confirm Password".text.make(),
+                )
+              ]),
+              CupertinoFormSection(
+                  header: "Terms & Conditions".text.make(),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoSwitch(
+                        value: true,
+                        onChanged: (value) {},
+                      ),
+                      prefix: "I Agree".text.make(),
+                    ),
+                  ]),
+              20.heightBox,
+              Material(
+                color: context.theme.buttonColor,
+                borderRadius: BorderRadius.circular(8),
+                child: InkWell(
+                  child: AnimatedContainer(
+
+                    duration: Duration(seconds: 1),
+                    width: 150,
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "SignUp",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
-            Row(
-              children :[
-                Container(
-                  // Lower Widget Bar.
-                  width: SizeConfig.screenWidth*0.97,
-                  height: SizeConfig.screenHeight*0.72,
-                  decoration:  BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  child :Column(
-                    // This is the column of the pair of boxes in the lower widget bar.
-
-                    children:[
-                      // This group of children will consist of pair of widget rows.
-                      Row(
-                        children :[
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(8,20,4,4),
-                            // Box one
-                            width: SizeConfig.screenWidth*0.45,
-                            height: SizeConfig.screenHeight*0.28,
-                            decoration:  BoxDecoration(
-                              color: Color(0xFFC5EBF4),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                          Container(
-                            // Box two
-                            margin: const EdgeInsets.fromLTRB(8,20,4,4),
-                            width: SizeConfig.screenWidth*0.45,
-                            height: SizeConfig.screenHeight*0.28,
-                            decoration:  BoxDecoration(
-                              color: Color(0xFFC5EBF4),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children :[
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(8,16,4,8),
-                            // Box one
-                            width: SizeConfig.screenWidth*0.45,
-                            height: SizeConfig.screenHeight*0.28,
-                            decoration:  BoxDecoration(
-                              color: Color(0xFFC5EBF4),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                          Container(
-                            // Box two
-                            margin: const EdgeInsets.fromLTRB(8,16,4,8),
-                            width: SizeConfig.screenWidth*0.45,
-                            height: SizeConfig.screenHeight*0.28,
-                            decoration:  BoxDecoration(
-                              color: Color(0xFFC5EBF4),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-
-
-
-              ], // children of the lower widget box
-            ),
-          ],
+              ).centered(),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
