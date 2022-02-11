@@ -59,6 +59,7 @@ flutter:
   assets:
     - assets/logo.png
     - assets/alucard.jpg
+    - assets/campus.png
   fonts:
     - family: Nunito
       fonts:

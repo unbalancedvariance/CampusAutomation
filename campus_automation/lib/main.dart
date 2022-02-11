@@ -6,9 +6,11 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-    LoginPage.tag: (context) => LoginPage(),
+    LoginPage.tag: (context) => const LoginPage(),
     HomePage.tag: (context) => HomePage(),
   };
+
+   MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
