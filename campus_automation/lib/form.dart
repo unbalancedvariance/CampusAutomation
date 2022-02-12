@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'size_config.dart';
+import 'home_page.dart';
 
 
 class SignUpPage extends StatefulWidget {
@@ -250,7 +251,7 @@ class _MycardWidgetState extends State<MyCardWidget>{
                     child: Align(
                       alignment: Alignment(0, 0.5),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => showAlertDialog(context),
                         child: const Text(
                             'Send Request', style: TextStyle(fontSize: 20)),
                         style: ButtonStyle(
@@ -266,5 +267,31 @@ class _MycardWidgetState extends State<MyCardWidget>{
           ),
         )
     );
+
   }
+  void showAlertDialog(BuildContext context) => showDialog(
+      context: context, barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: new Text('You clicked on'),
+          content: new SingleChildScrollView(
+            child: new ListBody(
+              children: [
+                new Text('Your Service Request has been created!'),
+              ],
+            ),
+          ),
+          actions: [
+            new ElevatedButton(
+              child: new Text('Ok'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed(HomePage.tag);
+              },
+            ),
+          ],
+        );
+      },
+
+    );
 }
