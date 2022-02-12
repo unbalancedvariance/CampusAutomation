@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'size_config.dart';
-import 'package:velocity_x/velocity_x.dart';
+
 
 class SignUpPage extends StatelessWidget {
   @override
   static String tag = 'form';
-  const SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
+
   Widget build(BuildContext context) {
 
     return Scaffold(
@@ -26,6 +27,7 @@ class SignUpPage extends StatelessWidget {
 class MyCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    DateTime pickeddate = DateTime.now();
     return Center(
         child: Container(
           width: SizeConfig.screenWidth,
@@ -49,8 +51,160 @@ class MyCardWidget extends StatelessWidget {
                 ),
                 Divider(
                     color: Colors.black
-                )
-              ],
+                ),
+                InkWell(
+                  onTap:(){},
+                  child:Container(
+                  width:(SizeConfig.screenWidth - 30),
+                  height:SizeConfig.screenHeight*0.10,
+                  child: Row(
+                    children: [
+                      Align(
+                        alignment: Alignment(0,0),
+                        child:Text(
+                            'Name:',
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment(-0.9,0),
+                        child:Text(
+                            ' Dhanvi Medha Beechu',
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                        ),
+                      ),
+                    ],
+
+                  ),
+
+        ),
+    ),
+                InkWell(
+                  onTap:(){},
+                  child:Container(
+                    width:(SizeConfig.screenWidth - 30),
+                    height:SizeConfig.screenHeight*0.10,
+                    child: Row(
+                      children: [
+                        Align(
+                          alignment: Alignment(-0.9,0),
+                          child:Text(
+                              'Room Number: ',
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.9,0),
+                          child:Text(
+                              'R205',
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                          ),
+                        ),
+                      ],
+
+                    ),
+
+                  ),
+                ),
+
+                // This is the date time picker part of the form
+                InkWell(
+                  onTap:(){},
+                  child:Container(
+                    width:(SizeConfig.screenWidth - 30),
+                    height:SizeConfig.screenHeight*0.10,
+                    child: Row(
+                      children: [
+                        Align(
+                          alignment: Alignment(-0.8,0),
+                          child:Text(
+                              "Date: ${pickeddate.year}:${pickeddate.month}:${pickeddate.day} ",
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.8,0),
+                          child:Icon(
+                              Icons.calendar_today,
+                          ),
+                        ),
+                      ],
+
+                    ),
+
+                  ),
+                ),
+                InkWell(
+                  onTap:(){},
+                  child:Container(
+                    width:(SizeConfig.screenWidth - 30),
+                    height:SizeConfig.screenHeight*0.10,
+                    child: Row(
+                      children: [
+                        Align(
+                          alignment: Alignment(-0.8,0),
+                          child:Text(
+                              "Time: ${pickeddate.hour}:${pickeddate.minute}",
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.8,0),
+                          child:Icon(
+                            Icons.lock_clock,
+                          ),
+                        ),
+                      ],
+
+                    ),
+
+                  ),
+                ),
+                InkWell(
+                  onTap:(){},
+                  child:Container(
+                    width:(SizeConfig.screenWidth - 30),
+                    height:SizeConfig.screenHeight*0.10,
+                    child: Row(
+                      children: [
+                        Align(
+                          alignment: Alignment(-0.8,0),
+                          child:Text(
+                              'Clean without supervision: ',
+                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
+                          ),
+                        ),
+                        Align(
+                          //   alignment: Alignment(-0.9,0),
+                          child:Checkbox(
+                            value: false,
+                            onChanged:(bool? value){
+                            },
+                          ),
+                        ),
+                      ],
+
+                    ),
+
+                  ),
+                ),
+          InkWell(
+            child:Container(
+              width:(SizeConfig.screenWidth - 30),
+              height:SizeConfig.screenHeight*0.10,
+          child:Align(
+            alignment: Alignment(0,0.5),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text('Send Request', style: TextStyle(fontSize: 20)),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF18BD5B)),
+              ),
+            ),
+          ),
+            ),
+          ),
+    ],
             ),
           ),
         )
