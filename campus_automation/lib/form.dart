@@ -14,7 +14,7 @@ class SignUpPage extends StatelessWidget {
       body:MyCardWidget(),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-          title: Text('Service Request'),
+          title: Text('Room Service'),
           backgroundColor: Color(0xFFFFFFFF),
           centerTitle: true,
       ),
@@ -118,7 +118,7 @@ class MyCardWidget extends StatelessWidget {
                         Align(
                           alignment: Alignment(-0.8,0),
                           child:Text(
-                              "Date: ${pickeddate.year}:${pickeddate.month}:${pickeddate.day} ",
+                              "Date: ${pickeddate.year}:0${pickeddate.month}:${pickeddate.day} ",
                               style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
                           ),
                         ),
@@ -144,7 +144,7 @@ class MyCardWidget extends StatelessWidget {
                         Align(
                           alignment: Alignment(-0.8,0),
                           child:Text(
-                              "Time: ${pickeddate.hour}:${pickeddate.minute}",
+                              "Time: ${pickeddate.hour}:0${pickeddate.minute}",
                               style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23.0,color: Colors.black.withOpacity(0.8))
                           ),
                         ),
