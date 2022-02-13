@@ -1,5 +1,8 @@
+import 'dart:convert';
+import 'queries.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'size_config.dart';
 import 'home_page.dart';
 
@@ -7,11 +10,11 @@ import 'home_page.dart';
 class SignUpPage extends StatefulWidget {
   static String tag = 'form';
   @override
-  _SignUpPageStage createState() => _SignUpPageStage();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
 
-class _SignUpPageStage extends State<SignUpPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +48,7 @@ class _MycardWidgetState extends State<MyCardWidget>{
         child: Container(
           width: SizeConfig.screenWidth,
           height: SizeConfig.screenHeight,
-          padding: new EdgeInsets.fromLTRB(4, 4, 4, 0),
+          padding:  EdgeInsets.fromLTRB(4, 4, 4, 0),
           child: Card(
             shape: RoundedRectangleBorder(
               //  borderRadius: BorderRadius.circular(15.0),
@@ -269,11 +272,32 @@ class _MycardWidgetState extends State<MyCardWidget>{
     );
 
   }
+  /*Future<http.Response> createAlbum(String title) async {
+    final response = await http.post(
+      Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'title': title,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      //
+     // debugPrint();
+      //return Album.fromJson(jsonDecode(response.body));
+    }
+    else throw  Exception();
+
+  }  */
   void showAlertDialog(BuildContext context) => showDialog(
       context: context, barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('You clicked on'),
+        return  AlertDialog(
+          title: new Text('Success!'),
           content: new SingleChildScrollView(
             child: new ListBody(
               children: [
@@ -282,13 +306,22 @@ class _MycardWidgetState extends State<MyCardWidget>{
             ),
           ),
           actions: [
-            new ElevatedButton(
-              child: new Text('Ok'),
+             ElevatedButton(
+              child: Text('Ok'),
               onPressed: () {
+                query q = query(pickeddate.year,pickeddate.month,pickeddate.day,pickeddate.hour,pickeddate.minute);
+                http.post(
+                  Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+                  headers: <String, String>{
+                    'Content-Type': 'application/json; charset=UTF-8',
+                  },
+                  body: jsonEncode(q.toJson()),
+                );
+               // http://9537-103-197-113-75.ngrok.io
                 Navigator.of(context).pop();
                 Navigator.of(context).pushNamed(HomePage.tag);
-              },
-            ),
+        },
+        ),
           ],
         );
       },
